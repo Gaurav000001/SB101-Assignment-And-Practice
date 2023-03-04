@@ -2,10 +2,7 @@ package com.masai.Q1;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.function.BiFunction;
 import java.util.function.Supplier;
 
 public class Main {
@@ -70,11 +67,6 @@ public class Main {
 		
 		System.out.println(list3.stream().reduce((i, j) -> i+j));
 		
-		Map<Integer, String> map = new HashMap<>();
-		BiFunction<Integer, String, String> c11 = map::putIfAbsent;
-		System.out.println(c11.apply(0, "Zero"));
-		
-		System.out.println(map);
 	}
 
 }
@@ -141,7 +133,7 @@ public class Main {
 //(b) Write appropriate method call here such the value "Zero" should be added at key 0.
 //
 //(xii)
-//Function<String, StringBuilder> bif= _______________; ----(a)
-//StringBuilder s1 = bif._______________; ----(b)
+//Function<String, StringBuilder> bif= s -> new StringBuilder(s); ----(a)
+//StringBuilder s1 = bif.apply("all is well"); ----(b)
 //(a) Write appropriate syntax here such that new object of StringBuilder should be created using String parameter
 //(b) Write appropriate method call here such the value of parameter is "all is well"
