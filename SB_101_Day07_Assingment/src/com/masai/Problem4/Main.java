@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 		
 		
-class A{
+class Main{
 	public static void main(String ags[]) throws InterruptedException, ExecutionException{
 		ExecutorService es = Executors.newFixedThreadPool(3); //----- (1)
 		Runnable r = () -> {};
