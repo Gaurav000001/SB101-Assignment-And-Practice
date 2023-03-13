@@ -32,7 +32,6 @@ public class Demo2 {
 			
 		}
 		
-		
 		list.forEach(System.out::println);
 		oi.close();
 	}
