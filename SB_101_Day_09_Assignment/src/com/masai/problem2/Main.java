@@ -1,0 +1,49 @@
+package com.masai.problem2;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		
+		List<String> list = new ArrayList<>();
+		
+		list.add("Ertiga 7 1200000 Toyota");
+		list.add("Eon 5 475000 Hyundai");
+		list.add("Creta 5 1450000 Hyundai");
+		list.add("Alto 5 499000 Maruti");
+		list.add("Fortuner 7 3450000 Toyota");
+		
+		Path path = Paths.get("car.txt");
+		
+		if(!Files.exists(path)) {
+			
+			Files.createFile(path);
+		}
+		
+		Files.write(path, list);
+		
+		Stream<String> stream = Files.lines(path);
+		
+		int combinePrice = stream.collect(Collectors.summingInt( i -> {
+				
+				String[] info = ((String) i).split(" ");
+				
+				return Integer.parseInt(info[2]);
+				
+			}));
+		
+		System.out.println(combinePrice);
+
+	}
+
+}
