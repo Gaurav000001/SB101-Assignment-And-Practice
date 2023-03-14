@@ -30,7 +30,7 @@ public class Main {
 			Files.createFile(path);
 		}
 		
-		Files.write(path, list);
+		Files.write(path, list /*, StandardOpenOption.APPEND*/);
 		
 		Stream<String> stream = Files.lines(path);
 		
@@ -42,8 +42,29 @@ public class Main {
 				
 			}));
 		
-		System.out.println(combinePrice);
-
+		System.out.println("Total Cost of all Cars is: "+combinePrice);
+		System.out.println();
+		
+		
+		System.out.println("All Cars manufactured by Hyundai are: ");
+		
+		Stream<String> stream1 = Files.lines(path);
+		
+		stream1.filter( i -> {
+			
+			String[] info = ((String) i).split(" ");
+			
+			return info[3].equals("Hyundai");
+			
+		}).forEach(i -> {
+			
+			String[] info = ((String) i).split(" ");
+			
+			System.out.println(a++ +". "+info[0]);
+			
+		});
 	}
+	
+	static int a = 1;
 
 }
