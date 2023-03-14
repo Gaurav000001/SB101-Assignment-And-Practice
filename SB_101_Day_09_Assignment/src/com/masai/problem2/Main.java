@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,9 +27,14 @@ public class Main {
 		if(!Files.exists(path)) {
 			
 			Files.createFile(path);
+			System.out.println("File Created successfully!");
+			System.out.println();
 		}
 		
 		Files.write(path, list /*, StandardOpenOption.APPEND*/);
+		
+		System.out.println("File writing completed!");
+		System.out.println();
 		
 		Stream<String> stream = Files.lines(path);
 		
